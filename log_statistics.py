@@ -1,3 +1,4 @@
+import sys
 import re
 from collections import Counter
 
@@ -50,6 +51,10 @@ def print_statistics(log_file):
 
 # Example usage
 if __name__ == "__main__":
-    log_file = input("Enter the path to the log file: ")
+    if len(sys.argv) != 2:
+        print("Usage: python log_statistics.py <log_file>")
+        sys.exit(1)
+    
+    log_file = sys.argv[1]
     print_statistics(log_file)
 
